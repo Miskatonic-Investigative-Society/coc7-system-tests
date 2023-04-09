@@ -1,0 +1,35 @@
+{
+  "id": "coc7-system-tests",
+  "title": "CoC7 System Tests",
+  "description": "Test suite to run Quench tests in game on the CoC7 System",
+  "authors": [
+    {
+      "name": "Miskatonic Investigative Society"
+    },
+    {
+      "name": "kwitczak"
+    }
+  ],
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10"
+  },
+  "relationships": {
+    "requires": [
+      {
+        "id": "coc7",
+        "type": "system",
+        "reason": "Test suite for CoC7 system."
+      },
+      {
+        "id": "quench",
+        "type": "module",
+        "reason": "Process Tests powered by Mocha."
+      }
+    ]
+  },
+  "esmodules": [
+    "module.js"
+  ]
+}

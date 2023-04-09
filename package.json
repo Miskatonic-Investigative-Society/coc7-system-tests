@@ -1,0 +1,28 @@
+{
+  "name": "fvtt-coc7-system-tests",
+  "version": "0.0.0",
+  "description": "Test suite to run Quench tests in game on the CoC7 System",
+  "scripts": {
+    "build": "webpack --mode production",
+    "format": "standard --fix",
+    "watch": "webpack --mode development"
+  },
+  "author": "Miskatonic Investigative Society",
+  "license": "GPL-3.0",
+  "type": "module",
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.3",
+    "css-minimizer-webpack-plugin": "^4.2.2",
+    "glob": "^9.2.1",
+    "js-yaml": "^4.1.0",
+    "less": "^4.1.3",
+    "less-loader": "^11.1.0",
+    "mini-css-extract-plugin": "^2.7.3",
+    "standard": "^17.0.0",
+    "thread-loader": "^3.0.4",
+    "webpack": "^5.76.1",
+    "webpack-cli": "^5.0.1",
+    "webpackbar": "^5.0.2"
+  }
+}

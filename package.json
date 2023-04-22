@@ -5,6 +5,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "format": "standard --fix",
+    "tests": "cypress open",
     "watch": "webpack --mode development"
   },
   "author": "Miskatonic Investigative Society",

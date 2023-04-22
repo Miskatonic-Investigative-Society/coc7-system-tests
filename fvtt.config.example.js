@@ -14,7 +14,8 @@
  */
 
 const developmentOptions = {
-  userDataPath: 'PATH_TO_FOUNDRY_DATA_FOLDER'
+  userDataPath: 'PATH_TO_FOUNDRY_DATA_FOLDER',
+  baseURL: 'http://localhost:30000'
 }
 
 export default developmentOptions

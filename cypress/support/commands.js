@@ -1,3 +1,4 @@
+/* global Cypress, cy */
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -33,14 +34,22 @@ Cypress.Commands.add('loginViaUi', (user) => {
   cy.get('button[name=join]').click()
   cy.get('span').contains(user.name).should('be.visible')
 
-  // TODO:
-  // Load for all async requests to finish, otherwise they may interrupt Cypress typing
-  // Instead we should listen to browser and start test once its ready
-  cy.wait(1000)
+  cy.window().then((win) => {
+    cy.window().its('game').and('have.property', 'ready').and('be.true')
+    if (typeof win.game.scenes.current !== 'undefined') {
+      cy.window().its('game').should('have.property', 'canvas').and('have.property', 'ready').and('be.true')
+    } else {
+      // If there is no scene arbitary delay
+      cy.wait(1000)
+    }
+  })
 })
 
 Cypress.Commands.add('turnOffWarningsIfTheyExist', () => {
-  cy.get('#notifications').within(() => {
-    cy.get('li.notification.error i').click()
+  cy.get('#notifications').then((notifications) => {
+    const buttons = notifications.find('li.notification i')
+    if (buttons.length) {
+      buttons.trigger('click')
+    }
   })
 })

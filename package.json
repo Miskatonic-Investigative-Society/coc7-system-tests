@@ -5,6 +5,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "format": "standard --fix",
+    "tests": "cypress open",
     "watch": "webpack --mode development"
   },
   "author": "Miskatonic Investigative Society",
@@ -14,6 +15,7 @@
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^4.2.2",
+    "cypress": "^12.10.0",
     "glob": "^9.2.1",
     "js-yaml": "^4.1.0",
     "less": "^4.1.3",

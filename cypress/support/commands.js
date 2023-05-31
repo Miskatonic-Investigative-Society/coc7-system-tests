@@ -53,3 +53,40 @@ Cypress.Commands.add('turnOffWarningsIfTheyExist', () => {
     }
   })
 })
+
+Cypress.Commands.add('openTab', (tab) => {
+  cy.get('#sidebar-tabs').within(() => {
+    cy.get(`a[data-tab=${tab}]`).click()
+  })
+})
+
+Cypress.Commands.add('importFromCompendium', (compendium, item) => {
+  cy.openTab('compendium')
+  cy.get('.compendium-name').contains(compendium).trigger('click')
+  cy.get('.entry-name').contains(item).rightclick()
+  cy.get('.context-item').contains('Import Entry').click()
+
+  // Close sheets which open automatically
+  // TODO FIX waiting time for button actions to assign
+  cy.wait(500)
+  cy.get('.window-title').contains(item).siblings('.close').trigger('click')
+})
+
+Cypress.Commands.add('deleteActor', (actor) => {
+  cy.openTab('actors')
+  cy.get('.document-name').contains(actor).rightclick()
+  cy.get('.context-item').contains('Delete').click()
+  cy.get('.yes').click()
+})
+
+Cypress.Commands.add('getActor', (actor) => {
+  cy.openTab('actors')
+  return cy.get('.document-name').contains(actor)
+})
+
+Cypress.Commands.add('ifActorExists', (actor) => {
+  cy.openTab('actors')
+  cy.get('.document-name').then(($body) => {
+    return $body.find(`a:contains("${actor}")`).length > 0
+  })
+})

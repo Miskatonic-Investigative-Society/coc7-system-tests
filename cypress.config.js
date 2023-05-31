@@ -11,6 +11,6 @@ export default defineConfig({
   e2e: {
     baseUrl: baseURL
   },
-  viewportWidth: 1024,
-  viewportHeight: 700
+  viewportWidth: 1920,
+  viewportHeight: 1080
 })

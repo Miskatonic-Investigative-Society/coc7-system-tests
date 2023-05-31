@@ -4,9 +4,7 @@ describe('Gamemaster can create a new Actor', () => {
     cy.loginViaUi({ name: 'Gamemaster' })
     cy.turnOffWarningsIfTheyExist()
 
-    cy.get('#sidebar-tabs').within(() => {
-      cy.get('a[data-tab=actors]').click()
-    })
+    cy.openTab('actors')
 
     cy.window().then((win) => {
       const actorName = 'Abdul'
